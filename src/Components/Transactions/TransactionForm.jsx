@@ -6,11 +6,13 @@ function TransactionForm() {
 
   const {addTransaction} = useGlobalState();
   const [description, setDescription] = useState('');
-  const [monto, setMonto] = useState(0);
+  const [monto, setMonto] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if(description !== '' && monto !== ''){
+    //valida que ingrese solo numeros en el monto
+    const regex = /^-?\d*\.?\d{0,2}$/; 
+    if(description !== '' && regex.test(monto) ){
       addTransaction({
         id: window.crypto.randomUUID(),
         description,
@@ -18,10 +20,10 @@ function TransactionForm() {
       });
       // Limpiar los campos del formulario
       setDescription('');
-      setMonto(0);
+      setMonto('');
     } else {
-      alert('Inserte los valores');
-    }
+      alert('Inserte los valores correctamente');
+    } 
   };
 
   return (
@@ -33,12 +35,12 @@ function TransactionForm() {
         className="bg-stone-600 text-white px-3 py-2 rounded-lg block mb-2 w-full"
         onChange={(e) => setDescription(e.target.value)}/>
 
-        <input type="number"
-        step="0.00"
+        <input type="text"
         placeholder="00.00"
         value={monto}
         className="bg-stone-600 text-white px-3 py-2 rounded-lg block mb-2 w-full"
-        onChange={(e) => setMonto(e.target.value)}/>
+        onChange={(e) => setMonto(e.target.value)}
+        />
 
         <button
         className="bg-indigo-900 text-white px-3 py-2 rounded-lg block mb-2 w-full disabled:opacity-50">

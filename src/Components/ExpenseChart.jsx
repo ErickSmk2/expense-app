@@ -43,7 +43,7 @@ export function ExpenseChart() {
         labels={({ datum }) => datum.x} 
         labelComponent={
           <VictoryLabel
-            angle={45}
+            angle={5}
             style={{
               fill: "white",
               parent: {

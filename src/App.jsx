@@ -14,8 +14,8 @@ function App() {
   return (
     <GlobalProvider>
       <div className="bg-stone-900 text-white min-h-screen flex justify-center items-center">
-        <div className="bg-neutral-950 text-white h-full w-4/1 flex justify-center items-center">
-          <div className="bg-cyan-950 p-10 rounded-md w-full">
+        <div className="bg-neutral-950 text-white h-full w-4/1 flex justify-center items-center ">
+          <div className="bg-cyan-950 p-10 rounded-md w-full sm:mt-0">
             <Header />
             <div className="flex flex-col md:flex-row justify-between gap-4">
               <div className="flex-1">
@@ -23,7 +23,7 @@ function App() {
                 <Balance />
                 <TransactionForm />
               </div>
-              <div className="flex-1 flex flex-col">
+              <div className="flex-1 flex flex-col ">
                 <ExpenseChart/>
                 <TransactionList />
               </div>
